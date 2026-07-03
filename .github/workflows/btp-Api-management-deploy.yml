@@ -1,0 +1,22 @@
+name: BTP API Management Deploy
+
+on:
+  push:
+    branches:
+      - feature-kk-btp-app-creation
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run BTP deploy script
+        run: |
+          echo "This workflow is a placeholder for BTP app creation/deploy"
+          echo "Configure your deployment steps in .github/scripts/btp-deploy.sh"
+      - name: Show inputs
+        run: |
+          echo "Subaccount: ${SUBACCOUNT:-Global}"
+          echo "Mode: ${MODE:-Create_Application_with_Product}"
+          echo "Environment: ${ENVIRONMENT:-Dev}"

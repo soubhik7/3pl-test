@@ -1,0 +1,4 @@
+Brand,Env,SystemName,ThreePLCode,EncryptedPassword,Action,ClientProfileAllowGuaranteedMsgSendEnabled,ClientProfileAllowGuaranteedMsgReceiveEnabled,ClientProfileCompressionEnabled,ClientProfileReplicationAllowClientConnectWhenStandbyEnabled,ClientProfileAllowTransactedSessionsEnabled,ClientProfileAllowBridgeConnectionsEnabled,ClientProfileAllowGuaranteedEndpointCreateEnabled,ClientProfileAllowSharedSubscriptionsEnabled,AclClientConnectDefaultAction,AclPublishTopicDefaultAction,AclSubscribeShareNameDefaultAction,AclSubscribeTopicDefaultAction,ClientUserEnabled,ClientUserGuaranteedEndpointPermissionOverrideEnabled,ClientUserSubscriptionManagerEnabled,MessageType,Topic,QueuePermission,QueueEgressEnabled,QueueMaxRedeliveryCount
+petc,rc,navision,3plpnp,"![+ycEERpRxxm5RfqLRNxBXw==]",FullOnboarding,,,,,,,,,,,,,,,,DespatchStock,topic1,,,
+petc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,DespatchStock,topic2,,,
+petc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,SourcingStock,topic1,,,

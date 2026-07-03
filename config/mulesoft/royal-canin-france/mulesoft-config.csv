@@ -1,0 +1,7 @@
+CountryKey,CountryCode,PartnerComment,CreatedBy,NavProtocol,NavPort,NavUsername,NavDomain,NavService,NavSoapPort,NavUseCommonCert,TranslationReceiverName,RowType,Environment,NavHost,NavCompany,NavSoapPath,NavRoutingCode,TransactionTypeCode,TransactionTypeEnabled,TransactionTypeLabel,MessageType,SourceDestinationFrom,SourceDestinationTo,UomFrom,UomTo
+royal-canin-france,fr,Royal Canin France NAV onboarding,integration-pulse-mulesoft-publisher,https,7124,SVC_UAT_MULESOFT,mars-ad.net,InterfaceWebServices,7124,true,petc-rc-navision-3plspl-sys,Environment,app,azr-xxx1234.mars-ad.net,Company(UAT - Royal Canin France),/sop_fra_uat_01/WS/UAT - Royal Canin France/Codeunit/InterfaceWebServices?wsdl,NAV_FM_IN_UAT_FRA,,,,,,,,
+,,,,,,,,,,,,Environment,dev,azr-xxx1234-dev.mars-ad.net,Company(DEV - Royal Canin France),/sop_fra_dev_01/WS/DEV - Royal Canin France/Codeunit/InterfaceWebServices?wsdl,NAV_FM_IN_DEV_FRA,,,,,,,,
+,,,,,,,,,,,,TransactionType,,,,,,sal_008,true,SHIPMENT,,,,,
+,,,,,,,,,,,,MessageType,,,,,,,,,despatchStock,,,,
+,,,,,,,,,,,,SourceDestination,,,,,,,,,,PLANT-FR1-PLANT-FR2,spl_001,,
+,,,,,,,,,,,,UomMapping,,,,,,,,,,,,EA,UNIT
