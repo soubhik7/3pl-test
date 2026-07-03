@@ -1,5 +1,93 @@
 {
   "generated_from": "csv",
   "notes": "This JSON file was generated as a placeholder from the provided CSV. Adjust schema as needed for your automation.",
-  "csv": "Brand,Env,SystemName,ThreePLCode,EncryptedPassword,Action,ClientProfileAllowGuaranteedMsgSendEnabled,ClientProfileAllowGuaranteedMsgReceiveEnabled,ClientProfileCompressionEnabled,ClientProfileReplicationAllowClientConnectWhenStandbyEnabled,ClientProfileAllowTransactedSessionsEnabled,ClientProfileAllowBridgeConnectionsEnabled,ClientProfileAllowGuaranteedEndpointCreateEnabled,ClientProfileAllowSharedSubscriptionsEnabled,AclClientConnectDefaultAction,AclPublishTopicDefaultAction,AclSubscribeShareNameDefaultAction,AclSubscribeTopicDefaultAction,ClientUserEnabled,ClientUserGuaranteedEndpointPermissionOverrideEnabled,ClientUserSubscriptionManagerEnabled,MessageType,Topic,QueuePermission,QueueEgressEnabled,QueueMaxRedeliveryCount\npetc,rc,navision,3plpnp,\"![+ycEERpRxxm5RfqLRNxBXw==]\",FullOnboarding,,,,,,,,,,,,,,,,DespatchStock,topic1,,,\npetc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,DespatchStock,topic2,,,\npetc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,SourcingStock,topic1,,,"
+  "csv": "Brand,Env,SystemName,ThreePLCode,EncryptedPassword,Action,ClientProfileAllowGuaranteedMsgSendEnabled,ClientProfileAllowGuaranteedMsgReceiveEnabled,ClientProfileCompressionEnabled,ClientProfileReplicationAllowClientConnectWhenStandbyEnabled,ClientProfileAllowTransactedSessionsEnabled,ClientProfileAllowBridgeConnectionsEnabled,ClientProfileAllowGuaranteedEndpointCreateEnabled,ClientProfileAllowSharedSubscriptionsEnabled,AclClientConnectDefaultAction,AclPublishTopicDefaultAction,AclSubscribeShareNameDefaultAction,AclSubscribeTopicDefaultAction,ClientUserEnabled,ClientUserGuaranteedEndpointPermissionOverrideEnabled,ClientUserSubscriptionManagerEnabled,MessageType,Topic,QueuePermission,QueueEgressEnabled,QueueMaxRedeliveryCount\npetc,rc,navision,3plpnp,\u0022![\u002BycEERpRxxm5RfqLRNxBXw==]\u0022,FullOnboarding,,,,,,,,,,,,,,,,DespatchStock,topic1,,,\npetc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,DespatchStock,topic2,,,\npetc,rc,navision,3plpnp,,,,,,,,,,,,,,,,,,SourcingStock,topic1,,,",
+  "clientProfile": {
+    "create": [
+      {
+        "name": "petc-rc-navision-3plpnp-sys-cp",
+        "allowGuaranteedMsgSendEnabled": true,
+        "allowGuaranteedMsgReceiveEnabled": true,
+        "compressionEnabled": true,
+        "replicationAllowClientConnectWhenStandbyEnabled": false,
+        "allowTransactedSessionsEnabled": true,
+        "allowBridgeConnectionsEnabled": true,
+        "allowGuaranteedEndpointCreateEnabled": true,
+        "allowSharedSubscriptionsEnabled": false
+      }
+    ]
+  },
+  "ACL": {
+    "create_ACL": [
+      {
+        "aclProfileName": "petc-rc-navision-3plpnp-sys-acl",
+        "clientConnectDefaultAction": "allow",
+        "publishTopicDefaultAction": "disallow",
+        "subscribeShareNameDefaultAction": "allow",
+        "subscribeTopicDefaultAction": "disallow"
+      }
+    ]
+  },
+  "ClientUser": {
+    "create": [
+      {
+        "aclProfileName": "petc-rc-navision-3plpnp-sys-acl",
+        "clientProfileName": "petc-rc-navision-3plpnp-sys-cp",
+        "clientUsername": "petc-rc-navision-3plpnp-sys-cu",
+        "enabled": true,
+        "guaranteedEndpointPermissionOverrideEnabled": true,
+        "password": "![\u002BycEERpRxxm5RfqLRNxBXw==]",
+        "subscriptionManagerEnabled": true
+      }
+    ]
+  },
+  "Queue": {
+    "create": [
+      {
+        "queueName": "dmq-petc-rc-navision-3plpnp-sys-despatchstock",
+        "owner": "petc-rc-navision-3plpnp-sys-cu",
+        "permission": "consume",
+        "egressEnabled": true
+      },
+      {
+        "queueName": "dmq-petc-rc-navision-3plpnp-sys-sourcingstock",
+        "owner": "petc-rc-navision-3plpnp-sys-cu",
+        "permission": "consume",
+        "egressEnabled": true
+      },
+      {
+        "queueName": "q-petc-rc-navision-3plpnp-sys-despatchstock",
+        "deadMsgQueue": "dmq-petc-rc-navision-3plpnp-sys-despatchstock",
+        "owner": "petc-rc-navision-3plpnp-sys-cu",
+        "permission": "no-access",
+        "egressEnabled": true,
+        "maxRedeliveryCount": 4
+      },
+      {
+        "queueName": "q-petc-rc-navision-3plpnp-sys-sourcingstock",
+        "deadMsgQueue": "dmq-petc-rc-navision-3plpnp-sys-sourcingstock",
+        "owner": "petc-rc-navision-3plpnp-sys-cu",
+        "permission": "no-access",
+        "egressEnabled": true,
+        "maxRedeliveryCount": 4
+      }
+    ]
+  },
+  "Subscription": {
+    "create": [
+      {
+        "queueName": "q-petc-rc-navision-3plpnp-sys-despatchstock",
+        "SUBSCRIPTION_LIST": [
+          "topic1",
+          "topic2"
+        ]
+      },
+      {
+        "queueName": "q-petc-rc-navision-3plpnp-sys-sourcingstock",
+        "SUBSCRIPTION_LIST": [
+          "topic1"
+        ]
+      }
+    ]
+  }
 }
