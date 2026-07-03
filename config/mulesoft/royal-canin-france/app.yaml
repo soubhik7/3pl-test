@@ -1,0 +1,28 @@
+country_key: royal-canin-france
+country_code: fr
+partner_comment: Royal Canin France NAV onboarding
+created_by: integration-pulse-mulesoft-publisher
+nav:
+  protocol: https
+  host: azr-xxx1234.mars-ad.net
+  port: "7124"
+  username: SVC_UAT_MULESOFT
+  password: "<SET_VIA_KEY_VAULT>"
+  domain: mars-ad.net
+  company: Company(UAT - Royal Canin France)
+  service: InterfaceWebServices
+  soap_port: "7124"
+  soap_path: /sop_fra_uat_01/WS/UAT - Royal Canin France/Codeunit/InterfaceWebServices?wsdl
+  routing_code: NAV_FM_IN_UAT_FRA
+  use_common_cert: true
+  transaction_types:
+    sal_008: { enabled: true, type: SHIPMENT }
+translation:
+  receiver_name: petc-rc-navision-3plspl-sys
+  message_types: [despatchStock]
+  source_destination_combinations:
+    - value_from: PLANT-FR1-PLANT-FR2
+      value_to: spl_001
+  uom_mappings:
+    - value_from: EA
+      value_to: UNIT
