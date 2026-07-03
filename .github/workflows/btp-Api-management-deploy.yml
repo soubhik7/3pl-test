@@ -5,6 +5,38 @@ on:
     branches:
       - feature-kk-btp-app-creation
   workflow_dispatch:
+    inputs:
+      sub_account:
+        description: 'BTP sub-account'
+        required: true
+        type: string
+        default: 'Global'
+      mode:
+        description: 'Deployment mode'
+        required: true
+        type: string
+        default: 'Create_Application_with_Product'
+      environment:
+        description: 'Target environment'
+        required: true
+        type: string
+        default: 'Dev'
+      developer_id:
+        description: 'Developer email/identifier'
+        required: true
+        type: string
+      title:
+        description: 'Application title'
+        required: true
+        type: string
+      short_text:
+        description: 'Short description'
+        required: false
+        type: string
+      product_name:
+        description: 'Product name(s), comma-separated'
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -16,7 +48,19 @@ jobs:
           echo "This workflow is a placeholder for BTP app creation/deploy"
           echo "Configure your deployment steps in .github/scripts/btp-deploy.sh"
       - name: Show inputs
+        env:
+          SUBACCOUNT: ${{ inputs.sub_account }}
+          MODE: ${{ inputs.mode }}
+          ENVIRONMENT: ${{ inputs.environment }}
+          DEVELOPER_ID: ${{ inputs.developer_id }}
+          TITLE: ${{ inputs.title }}
+          SHORT_TEXT: ${{ inputs.short_text }}
+          PRODUCT_NAME: ${{ inputs.product_name }}
         run: |
           echo "Subaccount: ${SUBACCOUNT:-Global}"
           echo "Mode: ${MODE:-Create_Application_with_Product}"
           echo "Environment: ${ENVIRONMENT:-Dev}"
+          echo "Developer ID: ${DEVELOPER_ID}"
+          echo "Title: ${TITLE}"
+          echo "Short text: ${SHORT_TEXT}"
+          echo "Product name: ${PRODUCT_NAME}"
