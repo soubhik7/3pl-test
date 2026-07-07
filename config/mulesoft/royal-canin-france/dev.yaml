@@ -1,5 +1,1 @@
-nav:
-  host: azr-xxx1234-dev.mars-ad.net
-  company: Company(DEV - Royal Canin France)
-  soap_path: /sop_fra_dev_01/WS/DEV - Royal Canin France/Codeunit/InterfaceWebServices?wsdl
-  routing_code: NAV_FM_IN_DEV_FRA
+# dev.yaml content here
